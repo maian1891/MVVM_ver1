@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
@@ -13,12 +14,23 @@ namespace MVVM_ver1
         {
             InitializeComponent();
 
-            MainPage = new MVVM_ver1.MainPage();
+            // The root page of your application
+            var content = new ContentPage
+            {
+                Title = "MVVM_ver1",
+            };
+
+            MainPage = new NavigationPage(content);
         }
 
-        protected override void OnStart()
+        protected override void OnStart ()
         {
             // Handle when your app starts
+        }
+
+        protected override void OnResume()
+        {
+            // Handle when your app resumes
         }
 
         protected override void OnSleep()
@@ -26,9 +38,5 @@ namespace MVVM_ver1
             // Handle when your app sleeps
         }
 
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
-        }
     }
 }
